@@ -1,2 +1,1 @@
-# hailsTest
-This is my first effort for Hails Test
+# First attempt at serverless AWS with reactJS
