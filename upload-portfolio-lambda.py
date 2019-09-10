@@ -1,6 +1,7 @@
 import boto3
 import io
 from io import StringIO
+import mimetypes
 
 s3 = boto3.resource('s3')
 portfolio_bucket = s3.Bucket('jmcconnellportfolio.com')
