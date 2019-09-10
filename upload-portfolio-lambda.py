@@ -26,5 +26,5 @@ with zipfile.ZipFile(portfolio_zip) as myzip:
          print (nm)
          obj=myzip.open(nm)
          mime_type = mimetypes.guess_type(nm)[0]
-         portfoliobucket.uploadfileobj(obj, nm, ExtraArgs={'ContentType':mimetypes.guess_type(nm)[0]})
+         portfolio_bucket.upload_fileobj(obj, nm, ExtraArgs={'ContentType':mimetypes.guess_type(nm)[0]})
          portfolio_bucket.Object(nm).Acl().put(ACL='public-read')
