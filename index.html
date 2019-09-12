@@ -15,7 +15,7 @@
     <main class="overflow--auto">
       <h1 class="color--skyBlue section__heading--largest">
         <!--Your name goes here -->
-        hailingHails
+        hailingHails 
       </h1>
 
       <ul class="section--social">
@@ -39,91 +39,75 @@
     </main>
 
     <section class="background--skyBlue section">
-      <h2 class="color--cloud margin--none section__text--centered">
-        Portfolio
-      </h2>
+
+      <script>
+      // Set the date we're counting down to
+      var countDownDate = new Date("Sep 26, 2019 19:55:00").getTime();
+
+      // Update the count down every 1 second
+      var x = setInterval(function() {
+
+        // Get today's date and time
+        var now = new Date().getTime();
+
+        // Find the distance between now and the count down date
+        var distance = countDownDate - now;
+
+        // Time calculations for days, hours, minutes and seconds
+        var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+        var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+        var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+        var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+        // Output the result in an element with id="demo"
+        document.getElementById("demo").innerHTML = days + "d " + hours + "h "
+        + minutes + "m " + seconds + "s ";
+
+        // If the count down is over, write some text
+        if (distance < 0) {
+          clearInterval(x);
+          document.getElementById("demo").innerHTML = "EXPIRED";
+        }
+      }, 1000);
+      </script>
+
+
+
+      <script type="application/javascript">
+            var ctx = null;
+            var x_icon = 0;
+            var y_icon = 0;
+            var stepX = 1;
+            var stepY = 1;
+            var size_x = 23;
+            var size_y = 22;
+            var canvas_size_x = 768;
+            var canvas_size_y = 768;
+            var anim_img = null;
+
+            function draw() {
+              var canvas = document.getElementById("canvas");
+              ctx = canvas.getContext("2d");
+              anim_img = new Image(size_x, size_y);
+              anim_img.onload = function() { setInterval('myAnimation()', 10); }
+              anim_img.src = 'hailieheadsm.png';
+            }
+            function myAnimation() {
+              ctx.clearRect(0, 0, canvas_size_x, canvas_size_y);
+             if (x_icon < 0 || x_icon > canvas_size_x - size_x) {stepX = -stepX; }
+             if (y_icon < 0 || y_icon > canvas_size_y - size_y) {stepY = -stepY; }
+                x_icon += stepX;
+                y_icon += stepY;
+             ctx.drawImage(anim_img, x_icon, y_icon);
+            }
+          </script>
+        </head>
+        <body onload="draw();">
+          <center>
+          <canvas id="canvas" width="768" height="768" style="border:solid 1px;"></canvas>
+          <p id="demo"></p>
+        </center>
     </section>
-
-    <section class="section section--alignCentered section--description">
-      <div class="section__exampleWrapper">
-        <div class="section__example">
-          <img alt="example screenshot of a project involving code"
-               class="section__exampleImage"
-               src="images/example1.png"/>
-          <dl class="color--cloud">
-            <dt class="section__exampleTitle section__text--centered">
-              Work Example
-            </dt>
-            <dd></dd>
-          </dl>
-        </div>
-      </div>
-
-      <div class="section__exampleWrapper">
-        <div class="section__example">
-          <img alt="example screenshot of a project involving chemistry"
-               class="section__exampleImage"
-               src="images/example2.png"/>
-          <!-- “Chemistry” by Surian Soosay is licensed under CC BY 2.0
-               https://www.flickr.com/photos/ssoosay/4097410999 -->
-          <dl class="color--cloud">
-            <dt class="section__exampleTitle section__text--centered ">
-              Work Example
-            </dt>
-            <dd></dd>
-          </dl>
-        </div>
-      </div>
-
-      <div class="section__exampleWrapper">
-        <div class="section__example">
-          <img alt="example screenshot of a project involving cats"
-               class="section__exampleImage"
-               src="images/example3.png"/>
-          <!-- “Bengal cat” by roberto shabs is licensed under CC BY 2.0
-               https://www.flickr.com/photos/37287295@N00/2540855181 -->
-          <dl class="color--cloud">
-            <dt class="section__exampleTitle section__text--centered">
-              Work Example
-            </dt>
-            <dd></dd>
-          </dl>
-        </div>
-      </div>
-    </section>
-
-    <section class="background--skyBlue section">
-      <h2 class="color--cloud margin--none section__text--centered">
-        About Me
-      </h2>
-    </section>
-
-    <section class="section section--alignCentered section--description">
-      <p class="color--darkgrey section__description">
-        I am learning to code in the cloud! I like to work hard and learn new things.
-        I want to work for a company that will pay me to code in the cloud!
-      </p>
-
-    <div class="background--skyBlue modal--closed">
-      <span class="color--cloud modal__closeButton">
-        <i class="fa fa-window-close-o"></i>
-      </span>
-      <img alt="example screenshot of a project involving code"
-           class="modal__image"
-           src="images/example1.png"/>
-      <div class="color--cloud modal__text">
-        <h2 class="modal__title">
-          Work Example Name
-        </h2>
-        <a class="color--skyBlue modal__link"
-           href="#">
-          Check it out
-        </a>
-        <p class="modal__description">
-          A long description of the work in question.
-        </p>
-      </div>
-    </div>
 
   </body>
 </html>
