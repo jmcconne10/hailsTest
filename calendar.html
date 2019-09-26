@@ -1,35 +1,57 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>jQuery UI Datepicker - Display button bar</title>
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="/resources/demos/style.css">
-  <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-  <script>
-  // figure out how to store this output
-  $( function() {
-    $( "#datepicker" ).datepicker({
-      showButtonPanel: true
-    });
-  } );
-  </script>
+
 </head>
 <body>
 
-<p>Date: <input type="text" id="datepicker"></p>
+	<div class="w3-container w3-blue">
+			<h2>Select a ride day and time</h2>
+	</div>
+	<form id="postData" class="w3-container w3-margin">
+			<p>
+					<label for="rideDate">Choose a Day</label>
+					<input type="date" name="rideDate" class="w3-input" id="rideDate">
+			</p>
+			<p>
+					<label for="startTime">Pickup Time</label>
+					<input type="time" name="startTime" class="w3-input" id="startTime">
+			</p>
+			<p>
+					<label for="endTime">Dropoff Time</label>
+					<input type="time" name="endTime" class="w3-input" id="endTime">
+			</p>
+			<input type="submit" value="Submit Request" class="w3-btn w3-blue">
+	</form>
 
-<p id="selectedDate"></p>
+	<script>
+			document.getElementById('postData').addEventListener('submit', postData);
 
-<script>
-function myFunction() {
-  var x = document.getElementById("btn1").value;
-  document.getElementById("selectedDate").innerHTML = x;
-}
-</script>
 
+			function postData(event) {
+					event.preventDefault();
+
+					//let rideDate = document.getElementById('rideDate').value;
+					let CUSTOMER_ID = "test1"
+
+					//let startTime = document.getElementById('startTime').value;
+					let startTime = "test2"
+
+					//let endTime = document.getElementById('endTime').value;
+					let endTime = "test3"
+
+					//title || body === "" ?
+					//alert('Please Enter all details') :
+					fetch('https://1dao8xshej.execute-api.us-east-1.amazonaws.com/test/customer', {
+							method: 'POST',
+							headers: new Headers(),
+							body: JSON.stringify({ CUSTOMER_ID, startTime, endTime })
+					}).then((res) => res.json())
+							.then((data) => alert('rideDate: ' + CUSTOMER_ID + '\nstartTime: '+ startTime +'\nendTime: ' + endTime))
+							.catch((err) => console.log(err))
+			}
+	</script>
 
 </body>
+
 </html>
