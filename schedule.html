@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>hailingHails</title>
+    <link rel="stylesheet" href="styles/main.css"/>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"/>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat"/>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Cardo"/>
+
+    <script>
+    function processData(f1, f2){
+    	var v1 = document.getElementById(f1).value;
+      var v2 = document.getElementById(f2).value;
+      var a = document.createElement('a');
+      var linkText = document.createTextNode("API Call");
+
+      a.appendChild(linkText);
+      a.title = "API Call";
+      a.href = "https://ow46iejx1i.execute-api.us-east-1.amazonaws.com/test/test?jobRequest=" + v1 + "&name=" + v2;
+      document.body.appendChild(a);
+    }
+
+
+    </script>
+
+  </head>
+
+  <body>
+    <main class="overflow--auto">
+      <h1 class="color--skyBlue section__heading--largest">
+        <!--Your name goes here -->
+        hailingHails
+      </h1>
+    </main>
+
+    <h2>Enter name and select a day</h2>
+    Date: <input type="date" name="field1" id="field1" /><br /><br />
+    Name <input type="string" name="field2" id="field2" /><br /><br />
+
+    <input type="button" onClick="processData('field1', 'field2')" value="Submit" />
+
+
+  </body>
+</html>
