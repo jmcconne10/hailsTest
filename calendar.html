@@ -26,23 +26,19 @@
 
 	<script>
 			document.getElementById('postData').addEventListener('submit', postData);
-
-
 			function postData(event) {
 					event.preventDefault();
-
-					//let rideDate = document.getElementById('rideDate').value;
-					let CUSTOMER_ID = "test1"
-
-					//let startTime = document.getElementById('startTime').value;
-					let startTime = "test2"
-
-					//let endTime = document.getElementById('endTime').value;
-					let endTime = "test3"
-
+					let CUSTOMER_ID = document.getElementById('rideDate').value;
+					//let CUSTOMER_ID = "test2"
+					let startTime = document.getElementById('startTime').value;
+					//let startTime = "test2"
+					let endTime = document.getElementById('endTime').value;
+					//let endTime = "test3"
 					//title || body === "" ?
 					//alert('Please Enter all details') :
-					fetch('https://1dao8xshej.execute-api.us-east-1.amazonaws.com/test/customer', {
+
+					//This is the customers-api
+					fetch('https://vwus7yp9if.execute-api.us-east-1.amazonaws.com/test/customer', {
 							method: 'POST',
 							headers: new Headers(),
 							body: JSON.stringify({ CUSTOMER_ID, startTime, endTime })
