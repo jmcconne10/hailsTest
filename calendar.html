@@ -28,17 +28,17 @@
 			document.getElementById('postData').addEventListener('submit', postData);
 			function postData(event) {
 					event.preventDefault();
+
+					//grabbing input from form
 					let rideDate = document.getElementById('rideDate').value;
-
 					let startTime = document.getElementById('startTime').value;
-
 					let endTime = document.getElementById('endTime').value;
 
 					//Need to get the submitter from the login and increment the jobID
 					let submitter = "testA";
 					let jobID = 51;
 
-					//This is the customers-api
+					//Call to hailsSubmit-API
 					fetch('https://ox08an4tsf.execute-api.us-east-1.amazonaws.com/test/test', {
 							method: 'POST',
 							headers: new Headers(),
