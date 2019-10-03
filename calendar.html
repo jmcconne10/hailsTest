@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+	<div class="w3-container w3-blue">
+			<h2>Select a ride day and time</h2>
+	</div>
+	<form id="postData" class="w3-container w3-margin">
+			<p>
+					<label for="rideDate">Choose a Day</label>
+					<input type="date" name="rideDate" class="w3-input" id="rideDate">
+			</p>
+			<p>
+					<label for="startTime">Pickup Time</label>
+					<input type="time" name="startTime" class="w3-input" id="startTime">
+			</p>
+			<p>
+					<label for="endTime">Dropoff Time</label>
+					<input type="time" name="endTime" class="w3-input" id="endTime">
+			</p>
+			<input type="submit" value="Submit Request" class="w3-btn w3-blue">
+	</form>
+
+	<script>
+			document.getElementById('postData').addEventListener('submit', postData);
+			function postData(event) {
+					event.preventDefault();
+
+					//grabbing input from form
+					let rideDate = document.getElementById('rideDate').value;
+					let startTime = document.getElementById('startTime').value;
+					let endTime = document.getElementById('endTime').value;
+
+					//Need to get the submitter from the login and increment the jobID
+					let submitter = "testA";
+					let jobID = 51;
+
+					//Call to hailsSubmit-API
+					fetch('https://ox08an4tsf.execute-api.us-east-1.amazonaws.com/test/test', {
+							method: 'POST',
+							headers: new Headers(),
+							body: JSON.stringify({ jobID, submitter, rideDate, startTime, endTime }),
+							mode: 'cors',
+					}).then((res) => res.json())
+							.then((data) => alert('jobID: ' + jobID + '\nrideDate: ' + rideDate + '\nstartTime: '+ startTime +'\nendTime: ' + endTime))
+							.catch((err) => console.log(err))
+			}
+	</script>
+
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <form id="getJobID" class="w3-container w3-margin">
+
+        <input type="submit" value="Get Job ID" class="w3-btn w3-blue">
+    </form>
+
+    <script>
+        document.getElementById('getJobID').addEventListener('submit', getData);
+        function getData(event) {
+
+            //Call to hailsIncrementJobID-API
+            url = 'https://d9w4ridktl.execute-api.us-east-1.amazonaws.com/test/get'
+
+            fetch(url)
+              //.then(alert("Hello! I am an alert box!!"))
+      
+              .then(
+                function(response) {
+                  alert(response.status)
+                  if (response.status !== 200) {
+                    console.log('Looks like there was a problem. Status Code: ' +
+                      response.status);
+                    return;
+                  }
+
+                  // Examine the text in the response
+                  response.json().then(function(data) {
+                    console.log(data);
+                  });
+                }
+              )
+              .catch(function(err) {
+                console.log('Fetch Error :-S', err);
+              });
+
+
+          //alert("Max: " + json.next)
+        }
+    </script>
+  </body>
+</html>
