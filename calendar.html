@@ -28,22 +28,24 @@
 			document.getElementById('postData').addEventListener('submit', postData);
 			function postData(event) {
 					event.preventDefault();
-					let CUSTOMER_ID = document.getElementById('rideDate').value;
-					//let CUSTOMER_ID = "test2"
+					let rideDate = document.getElementById('rideDate').value;
+
 					let startTime = document.getElementById('startTime').value;
-					//let startTime = "test2"
+
 					let endTime = document.getElementById('endTime').value;
-					//let endTime = "test3"
-					//title || body === "" ?
-					//alert('Please Enter all details') :
+
+					//Need to get the submitter from the login and increment the jobID
+					let submitter = "testA";
+					let jobID = 51;
 
 					//This is the customers-api
-					fetch('https://vwus7yp9if.execute-api.us-east-1.amazonaws.com/test/customer', {
+					fetch('https://ox08an4tsf.execute-api.us-east-1.amazonaws.com/test/test', {
 							method: 'POST',
 							headers: new Headers(),
-							body: JSON.stringify({ CUSTOMER_ID, startTime, endTime })
+							body: JSON.stringify({ jobID, submitter, rideDate, startTime, endTime }),
+							mode: 'cors',
 					}).then((res) => res.json())
-							.then((data) => alert('rideDate: ' + CUSTOMER_ID + '\nstartTime: '+ startTime +'\nendTime: ' + endTime))
+							.then((data) => alert('jobID: ' + jobID + '\nrideDate: ' + rideDate + '\nstartTime: '+ startTime +'\nendTime: ' + endTime))
 							.catch((err) => console.log(err))
 			}
 	</script>
