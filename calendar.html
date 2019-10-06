@@ -44,8 +44,23 @@
 							headers: new Headers(),
 							body: JSON.stringify({ jobID, submitter, rideDate, startTime, endTime }),
 							mode: 'cors',
-					}).then((res) => res.json())
-							.then((data) => alert('jobID: ' + jobID + '\nrideDate: ' + rideDate + '\nstartTime: '+ startTime +'\nendTime: ' + endTime))
+					})
+							.then(
+								function(response) {
+									//	console.log(response);
+									if (response.status !== 200) {
+										console.log('Looks like there was a problem. Status Code: ' +
+											response.status);
+										return;
+									}
+
+									// Examine the text in the response
+									response.json().then(function(data) {
+										console.log(data);
+									});
+								}
+							)
+							//.then((data) => alert('jobID: ' + jobID + '\nrideDate: ' + rideDate + '\nstartTime: '+ startTime +'\nendTime: ' + endTime))
 							.catch((err) => console.log(err))
 			}
 	</script>
