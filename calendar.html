@@ -24,6 +24,10 @@
 			<input type="submit" value="Submit Request" class="w3-btn w3-blue">
 	</form>
 
+	<hr>
+  <div id="response"></div>
+  <hr>
+
 	<script>
 			document.getElementById('postData').addEventListener('submit', postData);
 			function postData(event) {
@@ -57,9 +61,13 @@
 									// Examine the text in the response
 									response.json().then(function(data) {
 										console.log(data);
+										let output = JSON.stringify(data);
+										var myObj = JSON.parse(output);
+										document.getElementById("response").innerHTML = "Job ID: " + myObj.jobID + "<p>Submitter: " + myObj.submitter + "</p>";
 									});
 								}
 							)
+
 							//.then((data) => alert('jobID: ' + jobID + '\nrideDate: ' + rideDate + '\nstartTime: '+ startTime +'\nendTime: ' + endTime))
 							.catch((err) => console.log(err))
 			}
