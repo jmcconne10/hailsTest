@@ -59,7 +59,8 @@
 									}
 
 									// Examine the text in the response
-									response.json().then(function(data) {
+									response.json()
+									.then(function(data) {
 										console.log(data);
 										let output = JSON.stringify(data);
 										var myObj = JSON.parse(output);
