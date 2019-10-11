@@ -38,20 +38,20 @@
 					let startTime = document.getElementById('startTime').value;
 					let endTime = document.getElementById('endTime').value;
 
+
 					//Need to get the submitter from the login and increment the jobID
-					let submitter = "testA";
-					let jobID = 51;
+					let name = "Danny";
 
 					//Call to hailsSubmit-API
 					fetch('https://ox08an4tsf.execute-api.us-east-1.amazonaws.com/test/test', {
 							method: 'POST',
 							headers: new Headers(),
-							body: JSON.stringify({ jobID, submitter, rideDate, startTime, endTime }),
+							body: JSON.stringify({ name, rideDate, startTime, endTime }),
 							mode: 'cors',
 					})
 							.then(
 								function(response) {
-									//	console.log(response);
+									console.log(rideDate + startTime);
 									if (response.status !== 200) {
 										console.log('Looks like there was a problem. Status Code: ' +
 											response.status);
@@ -64,7 +64,7 @@
 										console.log(data);
 										let output = JSON.stringify(data);
 										var myObj = JSON.parse(output);
-										document.getElementById("response").innerHTML = "Job ID: " + myObj.jobID + "<p>Submitter: " + myObj.submitter + "</p>";
+										document.getElementById("response").innerHTML = "name: " + myObj.name + "<p>Ride Date Time: " + myObj.rideDateTime+ "</p>";
 									});
 								}
 							)
