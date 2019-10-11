@@ -9,7 +9,7 @@ function postData(event) {
 
 
     //Need to get the submitter from the login and increment the jobID
-    let name = "Danny";
+    let name = "Joe";
 
     //Call to hailsSubmit-API
     fetch('https://ox08an4tsf.execute-api.us-east-1.amazonaws.com/test/test', {
@@ -31,9 +31,9 @@ function postData(event) {
             response.json()
             .then(function(data) {
               console.log(data);
-              let output = JSON.stringify(data);
-              var myObj = JSON.parse(output);
-              document.getElementById("response").innerHTML = "name: " + myObj.name + "<p>Ride Date Time: " + myObj.rideDateTime+ "</p>";
+              //let output = JSON.stringify(data);
+              //var myObj = JSON.parse(output);
+              //document.getElementById("response").innerHTML = "name: " + myObj.name + "<p>Ride Date Time: " + myObj.rideDateTime+ "</p>";
             });
           }
         )
