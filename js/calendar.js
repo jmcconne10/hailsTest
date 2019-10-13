@@ -12,7 +12,7 @@ function postData(event) {
     let name = "Joe";
 
     //Call to hailsSubmit-API
-    fetch('https://ox08an4tsf.execute-api.us-east-1.amazonaws.com/test/test', {
+    fetch('https://w7m4ccxruf.execute-api.us-east-1.amazonaws.com/prod/rides', {
         method: 'POST',
         headers: new Headers(),
         body: JSON.stringify({ name, rideDate, startTime, endTime }),
