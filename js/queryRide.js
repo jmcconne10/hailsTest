@@ -1,4 +1,4 @@
-fetch('https://o3wnr9f61e.execute-api.us-east-1.amazonaws.com/test/test')
+fetch('https://w7m4ccxruf.execute-api.us-east-1.amazonaws.com/prod/rides')
     .then(function (res) {
         return res.json();
     })

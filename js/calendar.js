@@ -12,7 +12,7 @@ function postData(event) {
     let name = "Joe";
 
     //Call to hailsSubmit-API
-    fetch('https://ox08an4tsf.execute-api.us-east-1.amazonaws.com/test/test', {
+    fetch('https://w7m4ccxruf.execute-api.us-east-1.amazonaws.com/prod/rides', {
         method: 'POST',
         headers: new Headers(),
         body: JSON.stringify({ name, rideDate, startTime, endTime }),
@@ -34,10 +34,13 @@ function postData(event) {
               //let output = JSON.stringify(data);
               //var myObj = JSON.parse(output);
               //document.getElementById("response").innerHTML = "name: " + myObj.name + "<p>Ride Date Time: " + myObj.rideDateTime+ "</p>";
+              window.location.reload(true);
             });
           }
         )
 
         //.then((data) => alert('jobID: ' + jobID + '\nrideDate: ' + rideDate + '\nstartTime: '+ startTime +'\nendTime: ' + endTime))
         .catch((err) => console.log(err))
+
+  
 }
