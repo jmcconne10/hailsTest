@@ -34,10 +34,13 @@ function postData(event) {
               //let output = JSON.stringify(data);
               //var myObj = JSON.parse(output);
               //document.getElementById("response").innerHTML = "name: " + myObj.name + "<p>Ride Date Time: " + myObj.rideDateTime+ "</p>";
+              window.location.reload(true);
             });
           }
         )
 
         //.then((data) => alert('jobID: ' + jobID + '\nrideDate: ' + rideDate + '\nstartTime: '+ startTime +'\nendTime: ' + endTime))
         .catch((err) => console.log(err))
+
+  
 }
