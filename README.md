@@ -2,4 +2,4 @@
 tech used git, github, ssh, css, html, google fonts
 
 
-#this is currently in dev branch updated 9:54
+#this is currently in dev branch updated 10:34
